@@ -46,8 +46,6 @@ public class Main {
         double totalInterest = (monthlyPayment * monthlyLength) - userPrincipal;
 
         System.out.printf("A $%.2f loan at %.2f%% interest for %.2f years would have a $%.2f monthly payment with a total interest of $%.2f", userPrincipal, userInterest, userLength, monthlyPayment, totalInterest);
-
-
     }
     private static void futureValueCalculator() {
         System.out.println("Welcome to the Future Value Calculator!");
@@ -72,7 +70,6 @@ public class Main {
         System.out.printf("If you deposit $%.2f in a CD that earns %.2f%% interest and matures in %.2f years,%n", userDeposit, userInterest, userLength);
         System.out.printf("your CD's ending balance will be $%.2f and you would have earned $%.2f in interest.%n", futureValue, totalInterest);
         System.out.println("Note: The numbers assume daily compounding.");
-
     }
     private static void annuityCalculator() {
         System.out.println("Welcome to the Annuity Calculator!");
@@ -91,7 +88,6 @@ public class Main {
         double monthsLength = userLength * 12;
 
         double presentValue = userPayout * ((1 - Math.pow(1 + monthlyInterest, -monthsLength))/monthlyInterest);
-        
 
         System.out.printf("To fund an annuity that pays $%.2f monthly for %.2f years and earns an expected %.2f%% interest,%n", userPayout, userInterest, userLength);
                 System.out.printf("you would need to invest $%.2f today.%n", presentValue);
