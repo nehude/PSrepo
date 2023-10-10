@@ -27,12 +27,6 @@ public class Main {
         }
 
         System.out.println("Your letter grade is: " + grade);
-
-
-
-
-
-
-
+        
     }
 }
