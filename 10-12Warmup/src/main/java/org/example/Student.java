@@ -31,57 +31,46 @@ public class Student {
     }
 
     public void setFirstName(String firstName) {
-
         this.firstName = firstName;
     }
 
     public String getLastName() {
-
         return lastName;
     }
 
     public void setLastName(String lastName) {
-
         this.lastName = lastName;
     }
 
     public String getStudentID() {
-
         return studentID;
     }
 
     public void setStudentID(String studentID) {
-
         this.studentID = studentID;
     }
 
     public int getYearInCollege() {
-
         return yearInCollege;
     }
 
     public void setYearInCollege(int yearInCollege) {
-
         this.yearInCollege = yearInCollege;
     }
 
     public boolean isInternationalStudent() {
-
         return isInternationalStudent;
     }
 
     public void setInternationalStudent(boolean internationalStudent) {
-
         isInternationalStudent = internationalStudent;
     }
 
     public String getAddress() {
-
         return address;
     }
 
     public void setAddress(String address) {
-
         this.address = address;
     }
 }
