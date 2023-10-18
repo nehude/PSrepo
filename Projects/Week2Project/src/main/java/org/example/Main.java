@@ -36,7 +36,7 @@ public class Main {
             System.out.println("1. Show available books");
             System.out.println("2. Show checked out books");
             System.out.println("3. exit");
-            System.out.println("Please enter 1,2,3");
+            System.out.println("Please enter 1,2, or 3");
             int option = scanner.nextInt();
 
             switch (option) {
@@ -51,7 +51,7 @@ public class Main {
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("Please enter 1,2,3, or 4");
+                    System.out.println("Please enter 1,2, or 3");
                     break;
             }
         }
