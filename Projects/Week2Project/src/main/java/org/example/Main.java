@@ -1,12 +1,19 @@
-package org.example;
+package main.java.org.example;
 
 import java.util.Scanner;
 
+/*
+Excellent job. I tried checking out book that weren't there and checking in books that shouldn't be checked in
+and you handled those edge cases perfectly. Only small quibble is that as the user I dont want to type
+a long book name in, maybe just a number.
+Btw when you make java projects you make them as maven projects correct? Just double checking
+ */
 public class Main {
     public static void main(String[] args) {
         Book[] library = new Book[20];
 
-        library[0] = new Book(1, "9780061122415", "To Kill a Mockingbird", false, "");
+        //The new constructor will make for less typing since you know isCheckedOut is false and no one has the book
+        library[0] = new Book(1, "9780061122415", "To Kill a Mockingbird");
         library[1] = new Book(2, "9780141988478", "1984", false, "");
         library[2] = new Book(3, "9780060935467", "The Catcher in the Rye", false, "");
         library[3] = new Book(4, "9780062561029", "The Great Gatsby", false, "");
@@ -28,7 +35,7 @@ public class Main {
         library[19] = new Book(20, "9780385534635", "The Goldfinch", false, "");
 
         Scanner scanner = new Scanner(System.in);
-
+//good use of methods to make this clean and readable.
         while (true) {
 
             System.out.println("LIBRARY HOME SCREEN");

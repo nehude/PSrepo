@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d76db57a-d7e3-4070-ab3a-229be3f280e6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Projects/Week2Project/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects/Week2Project/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects/Week2Project/src/main/java/org/example/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projects/Week2Project/src/main/java/org/example/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects/Week2Project/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projects/Week2Project/src/main/java/org/example/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2XGTlQuYZDBYui53qV1z4ak0H6J" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Coding/Bootcamps/StudentRepos/Oct2023/PSrepo"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d76db57a-d7e3-4070-ab3a-229be3f280e6" name="Changes" comment="" />
+      <created>1698254566867</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1698254566867</updated>
+    </task>
+    <servers />
+  </component>
+</project>
