@@ -41,31 +41,6 @@ public class Dealership {
         this.phone = phone;
     }
 
-    public void addVehicle(Vehicle vehicle) {
-        inventory.add(vehicle);
-        DealershipFileManager fileManager = new DealershipFileManager();
-        fileManager.saveDealership(this);
-    }
-
-    public boolean removeVehicle(int vin) {
-        Vehicle vehicleToRemove = null;
-        for (Vehicle vehicle : inventory) {
-            if (vehicle.getVin() == vin) {
-                vehicleToRemove = vehicle;
-                break;
-            }
-        }
-
-        if (vehicleToRemove != null) {
-            inventory.remove(vehicleToRemove);
-            DealershipFileManager fileManager = new DealershipFileManager();
-            fileManager.saveDealership(this);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public List<Vehicle> getVehiclesByPrice(double min, double max) {
         List<Vehicle> filteredVehicles = new ArrayList<>();
         for (Vehicle vehicle : inventory) {
@@ -128,5 +103,29 @@ public class Dealership {
 
     public List<Vehicle> getAllVehicles() {
         return inventory;
+    }
+    public void addVehicle(Vehicle vehicle) {
+        inventory.add(vehicle);
+        DealershipFileManager fileManager = new DealershipFileManager();
+        fileManager.saveDealership(this);
+    }
+
+    public boolean removeVehicle(int vin) {
+        Vehicle vehicleToRemove = null;
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getVin() == vin) {
+                vehicleToRemove = vehicle;
+                break;
+            }
+        }
+
+        if (vehicleToRemove != null) {
+            inventory.remove(vehicleToRemove);
+            DealershipFileManager fileManager = new DealershipFileManager();
+            fileManager.saveDealership(this);
+            return true;
+        } else {
+            return false;
+        }
     }
 }
