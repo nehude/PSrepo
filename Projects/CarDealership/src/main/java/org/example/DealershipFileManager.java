@@ -17,6 +17,7 @@ public class DealershipFileManager {
             dealership = new Dealership("Neha's Cars", "123 address", "123-4567");
 
             if (scanner.hasNextLine()) {
+                scanner.nextLine();
 
                 while (scanner.hasNextLine()) {
                     String line = scanner.nextLine();
