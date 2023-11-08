@@ -118,7 +118,7 @@ public class Dealership {
                 break;
             }
         }
-
+        //good null check
         if (vehicleToRemove != null) {
             inventory.remove(vehicleToRemove);
             DealershipFileManager fileManager = new DealershipFileManager();

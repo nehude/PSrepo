@@ -14,6 +14,7 @@ public class UserInterface {
         display();
     }
 
+    //perfect use of init
     private void init() {
         DealershipFileManager dealershipFileManager = new DealershipFileManager();
         this.dealership = dealershipFileManager.getDealership();

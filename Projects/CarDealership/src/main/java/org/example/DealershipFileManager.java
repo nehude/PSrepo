@@ -8,7 +8,10 @@ import java.util.Scanner;
 public class DealershipFileManager {
     private Dealership dealership;
 
+    //Small thing, but this method is a good candidate for being static and
+    //to let the FileManager have a private constructor
     public Dealership getDealership() {
+        //This variable isn't necessary
         ArrayList<Vehicle> vehicles = new ArrayList<>();
         try {
             FileInputStream fis = new FileInputStream("src/main/resources/inventory.csv");
