@@ -1,5 +1,6 @@
 package org.example;
 
+import java.time.LocalDate;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -30,9 +31,11 @@ public class UserInterface {
         System.out.println("7. Display all vehicles");
         System.out.println("8. Add a new vehicle");
         System.out.println("9. Remove a vehicle");
-        System.out.println("10. Exit");
+        System.out.println("10. Buy or lease a car");
+        System.out.println("11. Exit");
         System.out.print("Enter your choice: ");
     }
+
 
     public void display() {
         init();
@@ -40,52 +43,54 @@ public class UserInterface {
 
         boolean exit = false;
         while (!exit) {
-                if (scanner.hasNextInt()) {
-                    int choice = scanner.nextInt();
-                    scanner.nextLine();
+            if (scanner.hasNextInt()) {
+                int choice = scanner.nextInt();
+                scanner.nextLine();
 
-                    switch (choice) {
-                        case 1:
-                            processGetByPriceRequest();
-                            break;
-                        case 2:
-                            processGetByMakeModelRequest();
-                            break;
-                        case 3:
-                            processGetByYearRequest();
-                            break;
-                        case 4:
-                            processGetByColorRequest();
-                            break;
-                        case 5:
-                            processGetByMileageRequest();
-                            break;
-                        case 6:
-                            processGetByVehicleTypeRequest();
-                            break;
-                        case 7:
-                            processGetAllVehiclesRequest();
-                            break;
-                        case 8:
-                            processAddVehicleRequest();
-                            break;
-                        case 9:
-                            processRemoveVehicleRequest();
-                            break;
-                        case 10:
-                            System.out.println("Exiting program. Goodbye!");
-                            System.exit(0);
-                            break;
-                        default:
-                            System.out.println("Input not valid: ");
-                    }
-                } else {
-                    System.out.println("Sorry, please enter a number 1-10: ");
-                    scanner.nextLine();
+                switch (choice) {
+                    case 1:
+                        processGetByPriceRequest();
+                        break;
+                    case 2:
+                        processGetByMakeModelRequest();
+                        break;
+                    case 3:
+                        processGetByYearRequest();
+                        break;
+                    case 4:
+                        processGetByColorRequest();
+                        break;
+                    case 5:
+                        processGetByMileageRequest();
+                        break;
+                    case 6:
+                        processGetByVehicleTypeRequest();
+                        break;
+                    case 7:
+                        processGetAllVehiclesRequest();
+                        break;
+                    case 8:
+                        processAddVehicleRequest();
+                        break;
+                    case 9:
+                        processRemoveVehicleRequest();
+                        break;
+                    case 10:
+                        processBuyOrLeaseRequest();
+                        break;
+                    case 11:
+                        System.out.println("Exiting program. Goodbye!");
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.println("Input not valid: ");
                 }
+            } else {
+                System.out.println("Sorry, please enter a number 1-10: ");
+                scanner.nextLine();
             }
         }
-
+    }
 
 
     private void displayVehicles(List<Vehicle> vehicles) {
@@ -275,7 +280,7 @@ public class UserInterface {
                 model = scanner.nextLine();
                 if (!model.isEmpty()) {
                     break;
-                    }
+                }
                 System.out.println("Invalid input. Model cannot be empty.");
             }
 
@@ -289,58 +294,57 @@ public class UserInterface {
                 System.out.println("Invalid input. Vehicle type cannot be empty.");
             }
 
-                String color = "";
-                while (true) {
-                    System.out.print("Enter color: ");
-                    color = scanner.nextLine();
-                    if (!color.isEmpty()) {
-                        break;
-                    }
-                    System.out.println("Invalid input. Color cannot be empty.");
+            String color = "";
+            while (true) {
+                System.out.print("Enter color: ");
+                color = scanner.nextLine();
+                if (!color.isEmpty()) {
+                    break;
                 }
+                System.out.println("Invalid input. Color cannot be empty.");
+            }
 
-                int odometer = 0;
-                while (true) {
-                    try {
-                        System.out.print("Enter odometer reading: ");
-                        odometer = scanner.nextInt();
-                        scanner.nextLine();
-                        break;
-                    } catch (InputMismatchException e) {
-                        System.out.println("Invalid input. Please enter a valid odometer reading.");
-                        scanner.nextLine();
-                    }
-                }
-
-                double price = 0;
-                while (true) {
-                    try {
-                        System.out.print("Enter price: ");
-                        price = scanner.nextDouble();
-                        scanner.nextLine();
-                        break;
-                    } catch (InputMismatchException e) {
-                        System.out.println("Invalid input. Please enter a valid price.");
-                        scanner.nextLine();
-                    }
-                }
-
-                Vehicle newVehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
-                dealership.addVehicle(newVehicle);
-
-                System.out.println("Vehicle added successfully!");
-
-                System.out.print("Do you want to add another vehicle? (yes/no): ");
-                String choice = scanner.next().toLowerCase();
-                scanner.nextLine();
-
-                if (choice.equals("no")) {
-                    addAnotherVehicle = false;
+            int odometer = 0;
+            while (true) {
+                try {
+                    System.out.print("Enter odometer reading: ");
+                    odometer = scanner.nextInt();
+                    scanner.nextLine();
+                    break;
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a valid odometer reading.");
+                    scanner.nextLine();
                 }
             }
-            displayMenu();
-        }
 
+            double price = 0;
+            while (true) {
+                try {
+                    System.out.print("Enter price: ");
+                    price = scanner.nextDouble();
+                    scanner.nextLine();
+                    break;
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a valid price.");
+                    scanner.nextLine();
+                }
+            }
+
+            Vehicle newVehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
+            dealership.addVehicle(newVehicle);
+
+            System.out.println("Vehicle added successfully!");
+
+            System.out.print("Do you want to add another vehicle? (yes/no): ");
+            String choice = scanner.next().toLowerCase();
+            scanner.nextLine();
+
+            if (choice.equals("no")) {
+                addAnotherVehicle = false;
+            }
+        }
+        displayMenu();
+    }
 
 
     private void processRemoveVehicleRequest() {
@@ -371,4 +375,97 @@ public class UserInterface {
         }
         displayMenu();
     }
+
+    private void processBuyOrLeaseRequest() {
+        System.out.print("Do you want to buy or lease a car? (buy/lease): ");
+        String buyOrLease = scanner.next().toLowerCase();
+        scanner.nextLine();
+
+        if (buyOrLease.equals("buy") || buyOrLease.equals("lease")) {
+            System.out.print("Do you need financing? (yes/no): ");
+            boolean needFinancing = scanner.next().equalsIgnoreCase("yes");
+            scanner.nextLine();
+
+            System.out.print("Enter your name: ");
+            String customerName = scanner.nextLine();
+
+            System.out.print("Enter your email: ");
+            String customerEmail = scanner.nextLine();
+
+            System.out.print("Enter the VIN of the desired vehicle: ");
+            int vin = scanner.nextInt();
+            scanner.nextLine();
+
+            Vehicle selectedVehicle = dealership.getVehicleByVin(vin);
+
+            if (selectedVehicle != null) {
+                Contract newContract;
+                if (buyOrLease.equals("buy")) {
+                    newContract = createSalesContract(customerName, customerEmail, selectedVehicle, needFinancing);
+                } else {
+                    newContract = createLeaseContract(customerName, customerEmail, selectedVehicle);
+                }
+
+                displayContractDetails(newContract);
+
+                System.out.print("Do you agree to the contract? (yes/no): ");
+                String agreement = scanner.next().toLowerCase();
+                scanner.nextLine();
+
+                if (agreement.equals("yes")) {
+                    dealership.removeVehicle(vin);
+                    ContractFileManager.saveContractsToFile(List.of(newContract), true);
+                }
+            } else {
+                System.out.println("Vehicle with VIN " + vin + " not found.");
+            }
+        } else {
+            System.out.println("Invalid choice. Please enter 'buy' or 'lease'.");
+        }
+        displayMenu();
+    }
+
+    private SalesContract createSalesContract(String customerName, String customerEmail, Vehicle selectedVehicle, boolean needFinancing) {
+        LocalDate dateOfContract = LocalDate.now();
+
+        SalesContract salesContract = new SalesContract(dateOfContract, customerName, customerEmail, selectedVehicle, needFinancing);
+
+        return salesContract;
+    }
+
+    private LeaseContract createLeaseContract(String customerName, String customerEmail, Vehicle selectedVehicle) {
+        LocalDate dateOfContract = LocalDate.now();
+        double expectedEndingValue = selectedVehicle.getPrice() * 0.5;
+
+        LeaseContract leaseContract = new LeaseContract(dateOfContract, customerName, customerEmail, selectedVehicle);
+
+        return leaseContract;
+    }
+
+    private void displayContractDetails(Contract contract) {
+        System.out.println("Contract Details:");
+        System.out.println("Customer Name: " + contract.getCustomerName());
+        System.out.println("Customer Email: " + contract.getCustomerEmail());
+        System.out.println("Vehicle Details: " + contract.getVehicleSold());
+        System.out.println("Total Price: $" + contract.getTotalPrice());
+        System.out.println("Monthly Payment: $" + contract.getMonthlyPayment());
+
+        if (contract instanceof SalesContract) {
+            SalesContract salesContract = (SalesContract) contract;
+
+            System.out.println("Sales Tax: $" + salesContract.getSalesTax());
+            System.out.println("Recording Fee: $" + salesContract.getRecordingFee());
+            System.out.println("Processing Fee: $" + salesContract.getProcessingFee());
+
+            if (salesContract.isFinanced()) {
+                System.out.println("Interest Rate: " + salesContract.getInterestRate() * 100 + "%");
+                System.out.println("Loan Length: " + salesContract.getLoanLength() + " months");
+            }
+        } else if (contract instanceof LeaseContract) {
+            LeaseContract leaseContract = (LeaseContract) contract;
+
+            System.out.println("Expected Ending Value: $" + leaseContract.getExpectedEndingValue());
+        }
+    }
 }
+

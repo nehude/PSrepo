@@ -128,4 +128,13 @@ public class Dealership {
             return false;
         }
     }
+
+    public Vehicle getVehicleByVin(int vin) {
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getVin() == vin) {
+                return vehicle; // Found the vehicle with the matching VIN
+            }
+        }
+        return null; // No vehicle found with the specified VIN
+    }
 }
