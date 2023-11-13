@@ -19,7 +19,7 @@ public class ContractFileManager {
                 if (contract instanceof SalesContract) {
                     SalesContract salesContract = (SalesContract) contract;
                     Vehicle vehicle = salesContract.getVehicleSold();
-                    writer.println(String.format("Sale|%d|%d|%s|%s|%s|%s|%d|%.2f|%s|%s|%s|%s|%.2f|%.2f|%.2f|%.2f",
+                    writer.println(String.format("Sale|%d|%d|%s|%s|%s|%s|%d|%.2f|%s|%s|%s|%s|%.2f|%.2f|%.2f",
                             vehicle.getVin(),
                             vehicle.getYear(),
                             vehicle.getMake(),
@@ -28,7 +28,7 @@ public class ContractFileManager {
                             vehicle.getColor(),
                             vehicle.getOdometer(),
                             vehicle.getPrice(),
-                            salesContract.getDateOfContract(),
+                            salesContract.getDateOfContract().toString(),
                             salesContract.getCustomerName(),
                             salesContract.getCustomerEmail(),
                             0.0,
@@ -38,7 +38,7 @@ public class ContractFileManager {
                 } else if (contract instanceof LeaseContract) {
                     LeaseContract leaseContract = (LeaseContract) contract;
                     Vehicle vehicle = leaseContract.getVehicleSold();
-                    writer.println(String.format("Lease|%d|%d|%s|%s|%s|%s|%d|%.2f|%s|%s|%s|%s|%.2f|%.2f|%.2f",
+                    writer.println(String.format("Lease|%d|%d|%s|%s|%s|%s|%d|%.2f|%s|%s|%s|%s|%.2f|%.2f",
                             vehicle.getVin(),
                             vehicle.getYear(),
                             vehicle.getMake(),
@@ -47,7 +47,7 @@ public class ContractFileManager {
                             vehicle.getColor(),
                             vehicle.getOdometer(),
                             vehicle.getPrice(),
-                            leaseContract.getDateOfContract(),
+                            leaseContract.getDateOfContract().toString(),
                             leaseContract.getCustomerName(),
                             leaseContract.getCustomerEmail(),
                             leaseContract.getExpectedEndingValue(),
